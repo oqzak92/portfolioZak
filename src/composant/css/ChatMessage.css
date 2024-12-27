@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.chat-message-container {
+    display: flex;
+    flex-direction: row;
+    /* Changé en row pour l'affichage horizontal */
+    align-items: center;
+    position: relative;
+    padding: 10px;
+    background-color: #000000;
+    min-height: 100px;
+    width: 100%;
+}
+
+.chat-message {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    width: 100%;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.message-content {
+    background-color: rgba(0, 20, 0, 0.9);
+    padding: 12px 18px;
+    border-radius: 5px;
+    max-width: 90%;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.95rem;
+    color: #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    line-height: 1.2;
+    position: relative;
+    border: 1px solid #00ff00;
+    animation: glow 2s infinite alternate;
+}
+
+.message-content::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 10px solid #00ff00;
+}
+
+.message-content p {
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.close-chat-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: 1px solid #ff0000;
+    border-radius: 3px;
+    font-size: 20px;
+    color: #ff0000;
+    cursor: pointer;
+    z-index: 10;
+    padding: 2px 8px;
+    font-family: 'Share Tech Mono', monospace;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.close-chat-button:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+    }
+
+    to {
+        box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+    }
+}
+
+/* Style pour l'effet de scan */
+.message-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: rgba(0, 255, 0, 0.5);
+    animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+/* Pour assurer que le conteneur parent est en noir */
+body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+/* ChatMessage.css */
+.message-content {
+    position: relative;
+    display: inline-block;
+}
+
+.typing-indicator {
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+    color: #00ff00;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Style pour l'état de chargement */
+.loading-state {
+    color: #00ff00;
+    font-style: italic;
+}
+
+.media-image {
+    max-width: 100%;
+    /* Permet à l'image de s'ajuster à la largeur disponible */
+    margin-top: 10px;
+    /* Espace entre le média et le texte */
+    border-radius: 8px;
+    /* Coins arrondis */
+}
+
+.media-video {
+    max-width: 100%;
+    /* Permet à la vidéo de s'ajuster à la largeur disponible */
+    margin-top: 10px;
+    /* Espace entre le média et le texte */
+    border-radius: 8px;
+    /* Coins arrondis */
+}

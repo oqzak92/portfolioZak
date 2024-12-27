@@ -1,0 +1,156 @@
+// src/composant/AnimatedInfoModel.jsx
+import React,
+{
+useRef,
+useState,
+useEffect
+}
+
+from 'react';
+
+import {
+    useFrame,
+    useLoader
+}
+
+from '@react-three/fiber';
+
+import {
+    GLTFLoader
+}
+
+from 'three/examples/jsm/loaders/GLTFLoader';
+
+import {
+    Html
+}
+
+from '@react-three/drei';
+
+import {
+    useNavigate
+}
+
+from 'react-router-dom';
+import './css/AnimatedInfoModel.css'; // Assurez-vous de créer ce fichier CSS
+import backgroundImage from '../assets/TV.png'; // Importez votre image ici
+
+const AnimatedInfoModel=({
+    modelPath, initialPosition, targetPosition, targetPage
+
+})=> {
+    const gltf=useLoader(GLTFLoader, modelPath);
+    const meshRef=useRef();
+    const navigate=useNavigate();
+    const [hovered,
+    setHovered]=useState(false);
+    const [position,
+    setPosition]=useState(initialPosition);
+    const [showPopup,
+    setShowPopup]=useState(false); // État pour afficher le popup
+
+    // Animation d'entrée
+    useEffect(()=> {
+            const interval=setInterval(()=> {
+                    setPosition(prev=> {
+                            const newX=Math.min(prev.x + 0.1, targetPosition.x);
+                            const newY=Math.min(prev.y + 0.1, targetPosition.y);
+                            const newZ=Math.min(prev.z + 0.1, targetPosition.z);
+
+                            // Vérifiez si la position finale est atteinte
+                            if (newX===targetPosition.x && newY===targetPosition.y && newZ===targetPosition.z) {
+                                setShowPopup(true); // Afficher le popup une fois la position atteinte
+                                clearInterval(interval); // Arrêter l'animation
+                            }
+
+                            return {
+                                x: newX, y: newY, z: newZ
+                            }
+
+                            ;
+                        });
+                }
+
+                , 16);
+            return ()=> clearInterval(interval);
+        }
+
+        , [targetPosition]);
+
+    useFrame(()=> {
+            if (meshRef.current) {
+                meshRef.current.rotation.y +=0.003;
+            }
+        });
+
+    // Fonction pour fermer le popup
+    const closePopup=()=> {
+        setShowPopup(false);
+    }
+
+    ;
+
+    return (<> <primitive ref= {
+            meshRef
+        }
+
+        object= {
+            gltf.scene
+        }
+
+        position= {
+            [position.x, position.y, position.z]
+        }
+
+        scale= {
+            1.5
+        }
+
+        onClick= {
+            ()=> navigate(targetPage)
+        }
+
+        onPointerOver= {
+            ()=> setHovered(true)
+        }
+
+        onPointerOut= {
+            ()=> setHovered(false)
+        }
+
+        /> {
+            hovered && (<Html position= {
+                    [position.x, position.y + 1, position.z]
+                }
+
+                > <div style= {
+                        {
+                        color: 'white', backgroundColor: 'rgba(0, 0, 0, 0.6)', padding: '5px', borderRadius: '5px'
+                    }
+                }
+
+                > {
+                    infoText
+                }
+
+                </div> </Html>)
+        }
+
+            {
+            showPopup && (<Html center> <div className="popup-overlay" > <div className="popup-content" > <h2>Bonjour, je suis Zakariya, bienvenue</h2> <img src= {
+                    backgroundImage
+                }
+
+                alt="Background" className="background-image" /> <button className="close-button" onClick= {
+                    closePopup
+                }
+
+                >Fermer</button> </div> </div> </Html>)
+        }
+
+        </>);
+}
+
+;
+
+export default AnimatedInfoModel;

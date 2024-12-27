@@ -1,0 +1,60 @@
+/* index.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000;
+  /* Fond noir pour l'effet étoilé */
+}
+
+/* Conteneur de l'animation d'étoiles */
+.starry-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  /* Derrière tout le contenu */
+}
+
+/* Les étoiles sont créées à l'aide de pseudo-éléments */
+.starry-background::before,
+.starry-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(2px 2px at 50%, #fff, transparent);
+  background-size: 3px 3px;
+  opacity: 0.8;
+  animation: star-twinkle 10s linear infinite;
+}
+
+/* Variation de la vitesse d'animation pour les étoiles de profondeur */
+.starry-background::after {
+  opacity: 0.5;
+  animation: star-twinkle 20s linear infinite;
+  transform: scale(1.5);
+  /* Étoiles plus grandes */
+}
+
+/* Animation de scintillement */
+@keyframes star-twinkle {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  50% {
+    transform: translate(-50px, -50px) scale(1.2);
+    /* Légère variation de taille */
+  }
+
+  100% {
+    transform: translate(50px, 50px) scale(1);
+  }
+}

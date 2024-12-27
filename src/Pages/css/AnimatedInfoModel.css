@@ -1,0 +1,111 @@
+/* src/css/AnimatedInfoModel.css */
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Press+Start+2P&display=swap');
+/* Conteneur principal pour le texte d'information */
+.infoContainer {
+    position: relative;
+    /* Position relative pour permettre le positionnement absolu de l'overlay */
+    width: 300px;
+    /* Largeur fixe pour le texte */
+    padding: 25px;
+    /* Espace intérieur autour du texte */
+    border-radius: 20px;
+    /* Coins arrondis pour un look doux */
+    background-color: rgba(0, 0, 0, 0.763);
+    /* Fond blanc légèrement transparent */
+    box-shadow: 0 4px 10px rgba(0, 167, 44, 0.3);
+    /* Ombre pour un effet de profondeur */
+    overflow: hidden;
+    /* Assurer que les éléments internes ne débordent pas */
+}
+
+/* Style du texte à l'intérieur du conteneur */
+.infoText {
+    color: rgba(0, 240, 12, 0.776);
+    /* Couleur du texte */
+    font-size: 16px;
+    /* Taille de la police */
+    line-height: 1.5;
+    /* Espacement entre les lignes pour une meilleure lisibilité */
+    opacity: 0;
+    /* Commence invisible pour l'animation */
+    transform: translateY(-20px);
+    /* Positionne le texte légèrement en haut pour l'animation */
+    animation: fadeIn 1s forwards;
+    /* Animation d'apparition */
+    font-family: 'Agdasima', sans-serif;
+        /* Applique la police Agdasima */
+}
+
+.infoTitle {
+    font-family: 'Agdasima', sans-serif;
+    /* Utiliser la police Agdasima */
+    font-size: 24px;
+    /* Taille de police plus grande */
+    font-weight: bold;
+    /* Met le texte en gras */
+    margin-bottom: 10px;
+    /* Ajoute un espace en dessous du titre */
+    color: rgba(0, 240, 12, 0.776);
+    /* Couleur du texte */
+}
+
+/* Animation pour l'apparition du texte */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        /* Invisible au début */
+        transform: translateY(-20px);
+        /* Positionne le texte légèrement plus haut */
+    }
+
+    100% {
+        opacity: 1;
+        /* Complètement visible à la fin */
+        transform: translateY(0);
+        /* Retourne à la position originale */
+    }
+}
+
+/* Bouton de fermeture */
+.closeButton {
+    position: absolute;
+    /* Positionnement absolu pour la croix */
+    top: 5px;
+    /* Positionne la croix en haut à droite */
+    right: 5px;
+    /* Positionne la croix à droite */
+    color: rgba(0, 167, 44, 0.3);
+    /* Couleur de la croix */
+    font-size: 18px;
+    /* Taille de la croix */
+    cursor: pointer;
+    /* Change le curseur sur hover */
+}
+
+/* Overlay pour assombrir l'arrière-plan */
+.overlay {
+    position: absolute;
+    /* Positionnement absolu pour couvrir le conteneur */
+    top: 0;
+    /* Commence en haut */
+    left: 0;
+    /* Commence à gauche */
+    width: 100%;
+    /* Prend toute la largeur du conteneur */
+    height: 100%;
+    /* Prend toute la hauteur du conteneur */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Couleur d'assombrissement */
+    z-index: -1;
+    /* En arrière-plan, derrière le texte */
+    opacity: 0;
+    /* Initialement caché */
+    transition: opacity 0.3s ease;
+    /* Transition pour rendre l'effet d'assombrissement fluide */
+}
+
+/* Rendre l'assombrissement visible lorsque le conteneur est actif */
+.infoContainer.active .overlay {
+    opacity: 1;
+    /* Rendre l'overlay visible */
+}
