@@ -6,9 +6,9 @@ import AppRouter from './Router';
 function App() {
   return (
     <div className="app-background"> 
-      <BrowserRouter>
+      <BrowserRouter basename="/portfolioZak"> {/* Ajoutez le basename */}
         <AppRouter />
-        </BrowserRouter>
+      </BrowserRouter>
     </div>
   );
 }

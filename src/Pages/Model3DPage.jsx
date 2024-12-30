@@ -9,8 +9,11 @@ import ChatMessage from '../composant/ChatMessage';
 import profileImage from '../assets/pro.png';
 
 // Charger le modèle de la petite météorite avec rotation indépendante
+
+
+
 const SmallMeteorite = () => {
-  const gltf = useLoader(GLTFLoader, '/assets/meteorite.glb');
+  const gltf = useLoader(GLTFLoader, '/portfolioZak/assets/meteorite.glb');
   const meshRef = useRef();
   const [scale, setScale] = useState(0.1);
   const [hovered, setHovered] = useState(false);
@@ -54,7 +57,7 @@ const SmallMeteorite = () => {
 
 // Charger le modèle de satellite avec rebond et rotation indépendants
 const BouncingModel = () => {
-  const gltf = useLoader(GLTFLoader, '/assets/satelite.glb');
+  const gltf = useLoader(GLTFLoader, '/portfolioZak/assets/satelite.glb');
   const meshRef = useRef();
   const navigate = useNavigate();
   const [scale, setScale] = useState(4.8);
@@ -98,7 +101,7 @@ const BouncingModel = () => {
 
 // Charger le modèle d'astronaute
 const Astronaute = () => {
-  const gltf = useLoader(GLTFLoader, '/assets/astronote.glb');
+  const gltf = useLoader(GLTFLoader, '/portfolioZak/assets/astronote.glb');
   const meshRef = useRef();
   const navigate = useNavigate();
   const [scale, setScale] = useState(0.5);
@@ -142,7 +145,7 @@ const Astronaute = () => {
 
 // Charger un modèle immobile qui tourne uniquement sur lui-même
 const StationaryModel = () => {
-  const gltf = useLoader(GLTFLoader, '/assets/planete.glb');
+  const gltf = useLoader(GLTFLoader, '/portfolioZak/assets/planete.glb');
   const meshRef = useRef();
   const navigate = useNavigate();
   const [scale, setScale] = useState(4.5);

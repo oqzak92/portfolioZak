@@ -16,7 +16,7 @@ import Fit from '../assets/fit.jpg';
 
 const RotatingModel = ({ position = [0, -1.5, 0], scale = [2, 2, 2] }) => {
     const modelRef = useRef();
-    const { scene } = useLoader(GLTFLoader, '/assets/planete.glb');
+    const { scene } = useLoader(GLTFLoader, '/portfolioZak/assets/planete.glb');
     
     useFrame(() => {
         if (modelRef.current) {
@@ -97,7 +97,7 @@ const Projet = () => {
                 <RotatingModel />
                 <OrbitControls />
                 <AnimatedInfoModel
-                    modelPath="/assets/soucoupe.glb"
+                    modelPath="/portfolioZak/assets/soucoupe.glb"
                     initialPosition={{ x: -10, y: 0, z: 0 }}
                     targetPosition={{ x: 0, y: 2.5, z: 0 }}
                     infoText="Retour"

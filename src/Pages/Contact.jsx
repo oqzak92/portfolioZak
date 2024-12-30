@@ -50,7 +50,7 @@ const Contact = () => {
         <RotatingModel />
         <OrbitControls />
         <AnimatedInfoModel
-          modelPath="/assets/soucoupe.glb"
+          modelPath="/portfolioZak/assets/soucoupe.glb"
           initialPosition={{ x: -10, y: 0, z: 0 }}
           targetPosition={{ x: -6, y: 2.5, z: 0 }}
           infoText="Retour"

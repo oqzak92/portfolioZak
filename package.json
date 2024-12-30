@@ -1,6 +1,6 @@
 {
   "homepage": "https://oqzak92.github.io/portfolioZak/",
-  "name": "commerce",
+  "name": "portfolioZak",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "predeploy": "npm run build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },

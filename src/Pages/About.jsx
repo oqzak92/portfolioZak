@@ -10,7 +10,7 @@ import profileImage from '../assets/pro.png';
 
 const RotatingModel = ({ position = [-6, 0, 0], scale = [5, 5, 5] }) => {
     const modelRef = useRef();
-    const { scene } = useLoader(GLTFLoader, '/assets/satelite.glb');
+    const { scene } = useLoader(GLTFLoader, '/portfolioZak/assets/satelite.glb');
     
     useFrame(() => {
         if (modelRef.current) {
@@ -79,7 +79,7 @@ const About = () => {
                 <RotatingModel />
                 <OrbitControls />
                 <AnimatedInfoModel
-                    modelPath="/assets/soucoupe.glb"
+                    modelPath="/portfolioZak/assets/soucoupe.glb"
                     initialPosition={{ x: -10, y: 0, z: 0 }}
                     targetPosition={{ x: -6, y: 2.5, z: 0 }}
                     infoText="Retour"

@@ -12,10 +12,10 @@ import profileImage from '../assets/pro.png';
 
 
 const models = [
-  { url: '/assets/meteorite.glb', scale: 0.1, name: 'CV' },
-  { url: '/assets/satelite.glb', scale: 5.8, name: 'à propos de moi' },
-  { url: '/assets/astronote.glb', scale: 1.5, name: 'Contact' },
-  { url: '/assets/planete.glb', scale: 2.0, name: 'Projets' },
+  { url: '/portfolioZak/assets/meteorite.glb', scale: 0.1, name: 'CV' },
+  { url: '/portfolioZak/assets/satelite.glb', scale: 5.8, name: 'à propos de moi' },
+  { url: '/portfolioZak/assets/astronote.glb', scale: 1.5, name: 'Contact' },
+  { url: '/portfolioZak/assets/planete.glb', scale: 2.0, name: 'Projets' },
 ];
 
 const Model = ({ url, scale, name, onFinish }) => {
@@ -121,7 +121,7 @@ const Model3DPage = () => {
         <pointLight position={[10, 10, 10]} intensity={1.5} />
         <Model url={url} scale={scale} name={name} onFinish={handleModelFinish} />
         <AnimatedInfoModel
-          modelPath="/assets/soucoupe.glb"
+          modelPath="/portfolioZak/assets/soucoupe.glb"
           initialPosition={{ x: -10, y: 0, z: 0 }}
           targetPosition={{ x: -6, y: 2.5, z: 0 }}
           infoText="Mon Univers"
