@@ -123,7 +123,7 @@ const Model3DPage = () => {
         <AnimatedInfoModel
           modelPath="/portfolioZak/assets/soucoupe.glb"
           initialPosition={{ x: -10, y: 0, z: 0 }}
-          targetPosition={{ x: -6, y: 2.5, z: 0 }}
+          targetPosition={{ x: 0, y: 2.5, z: 0 }}
           infoText="Mon Univers"
           targetPage="/home"
         />

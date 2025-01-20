@@ -11,7 +11,7 @@ const RotatingModel = ({ position = [-6, 0, 0] }) => {
   const modelRef = useRef();
   
   // Charger le modèle 3D
-  const { scene } = useLoader(GLTFLoader, '/assets/astronote.glb');
+  const { scene } = useLoader(GLTFLoader, '/portfolioZak/assets/astronote.glb');
 
   // Animation de rotation du modèle
   useFrame(() => {
